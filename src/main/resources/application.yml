@@ -1,0 +1,8 @@
+zuul:
+  routes:
+    user_administration:
+      path: /company_management/**
+      url: http://localhost:8090/company_management
+    product_test:
+      path: /product_test/**
+      url: http://localhost:9000/product_test
