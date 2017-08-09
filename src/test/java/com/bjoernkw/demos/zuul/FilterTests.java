@@ -44,4 +44,15 @@ public class FilterTests {
 			.statusCode(200)
 			.header("Zuul-Test-Response-Header", "Zuul test response header");
 	}
+
+	@Test
+	public void testZuulRequestHeader() throws Exception {
+		given()
+			.contentType("application/json;charset=UTF-8")
+		.when()
+			.get("http://localhost:8080/company_management/country-codes")
+		.then()
+			.statusCode(200)
+			.header("Response-Header-Triggered-By-Zuul", "Zuul triggered the addition of this response header.");
+	}
 }
