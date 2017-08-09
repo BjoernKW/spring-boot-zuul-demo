@@ -30,7 +30,7 @@ public class ZuulHeaderFilter extends ZuulFilter {
     public Object run() {
         RequestContext context = RequestContext.getCurrentContext();
         context.addZuulRequestHeader("Zuul-Test-Request-Header", "Zuul test request header");
-        context.addZuulRequestHeader("Zuul-Test-Response-Header", "Zuul test response header");
+        context.addZuulResponseHeader("Zuul-Test-Response-Header", "Zuul test response header");
 
         return null;
     }

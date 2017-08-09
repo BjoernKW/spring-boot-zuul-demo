@@ -24,7 +24,7 @@ public class FilterTests {
 	}
 
 	@Test
-	public void testZuulResponseHeader() throws Exception {
+	public void testServletResponseHeader() throws Exception {
 		given()
 			.contentType("application/json;charset=UTF-8")
 		.when()
@@ -32,5 +32,16 @@ public class FilterTests {
 		.then()
 			.statusCode(200)
 			.header("Test-Servlet-Response-Header", "Test servlet response header");
+	}
+
+	@Test
+	public void testZuulResponseHeader() throws Exception {
+		given()
+			.contentType("application/json;charset=UTF-8")
+		.when()
+			.get("http://localhost:8080/company_management/country-codes")
+		.then()
+			.statusCode(200)
+			.header("Zuul-Test-Response-Header", "Zuul test response header");
 	}
 }
